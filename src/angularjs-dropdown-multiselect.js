@@ -202,7 +202,18 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                             if ($scope.singleSelection) {
                                 totalSelected = ($scope.selectedModel !== null && angular.isDefined($scope.selectedModel[$scope.settings.idProp])) ? 1 : 0;
                             } else {
-                                totalSelected = angular.isDefined($scope.selectedModel) ? $scope.selectedModel.length : 0;
+                                //totalSelected = angular.isDefined($scope.selectedModel) ? $scope.selectedModel.length : 0;
+                                if(angular.isDefined($scope.selectedModel)){
+                                    for(var i=0;i<$scope.selectedModel.length;i++){
+                                        if(i<$scope.selectedModel.length-1){
+                                            totalSelected=totalSelected+$scope.selectedModel[i].name+",";
+                                        }else{
+                                            totalSelected=totalSelected+$scope.selectedModel[i].name;
+                                        }
+                                    }           
+                                }else{
+                                    totalSelected="";
+                                }
                             }
 
                             if (totalSelected === 0) {
