@@ -197,7 +197,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 
                             return itemsText.join(', ');
                         } else {
-                            var totalSelected;
+                            var totalSelected = "";
 
                             if ($scope.singleSelection) {
                                 totalSelected = ($scope.selectedModel !== null && angular.isDefined($scope.selectedModel[$scope.settings.idProp])) ? 1 : 0;
@@ -215,11 +215,12 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                                     totalSelected="";
                                 }
                             }
-
-                            if (totalSelected === 0) {
+                            //if (totalSelected === 0) {
+                            if (totalSelected === null) {
                                 return $scope.texts.buttonDefaultText;
                             } else {
-                                return totalSelected + ' ' + $scope.texts.dynamicButtonTextSuffix;
+                                //return totalSelected + ' ' + $scope.texts.dynamicButtonTextSuffix;
+                                return totalSelected
                             }
                         }
                     } else {
