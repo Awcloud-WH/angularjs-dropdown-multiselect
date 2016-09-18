@@ -207,9 +207,9 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                                 if(angular.isDefined($scope.selectedModel)){
                                     for(var i=0;i<$scope.selectedModel.length;i++){
                                         if(i<$scope.selectedModel.length-1){
-                                            totalSelected=totalSelected+$scope.selectedModel[i].showName+",";
+                                            totalSelected=totalSelected+$scope.selectedModel[i].name+",";
                                         }else{
-                                            totalSelected=totalSelected+$scope.selectedModel[i].showName;
+                                            totalSelected=totalSelected+$scope.selectedModel[i].name;
                                         }
                                     }           
                                 }else{
